@@ -1,0 +1,16 @@
+{
+  "text": "Optical Character Recognition Digitizing documents is fun. Invoice number: 482913 Total amount: $1,234.56",
+  "confidence": 0.9592,
+  "regions": [
+    {
+      "box": [
+        0,
+        0,
+        370,
+        212
+      ],
+      "confidence": 1.0,
+      "text": "Optical Character Recognition Digitizing documents is fun. Invoice number: 482913 Total amount: $1,234.56"
+    }
+  ]
+}
