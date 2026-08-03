@@ -1,0 +1,16 @@
+# Core OCR pipeline (lightweight, CPU friendly)
+numpy>=1.24
+opencv-python>=4.8
+pillow>=10.0
+PyYAML>=6.0
+
+# Tesseract bindings (requires the tesseract binary installed separately)
+#   Windows: winget install UB-Mannheim.TesseractOCR
+#   Ubuntu : sudo apt install tesseract-ocr
+pytesseract>=0.3.10
+
+# PDF support: extract embedded text or render pages for OCR
+PyMuPDF>=1.23
+
+# Test tooling
+pytest>=7.4

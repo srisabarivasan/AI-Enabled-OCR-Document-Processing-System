@@ -1,0 +1,5 @@
+# Optional: TrOCR backend (Transformer-based recognition on detected crops).
+# Heavy download (pulls in PyTorch + HuggingFace transformers).
+transformers>=4.40
+torch>=2.2
+sentencepiece>=0.1.99

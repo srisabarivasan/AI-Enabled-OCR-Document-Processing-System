@@ -1,0 +1,3 @@
+# Optional: EasyOCR backend (deep-learning based detection + recognition).
+# Heavy download (pulls in PyTorch CPU wheels).
+easyocr>=1.7

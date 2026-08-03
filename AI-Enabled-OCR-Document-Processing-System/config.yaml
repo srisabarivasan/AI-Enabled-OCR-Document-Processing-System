@@ -1,0 +1,44 @@
+# OCR pipeline configuration
+# Copy this file and adjust values to taste, then pass --config <file> to main.py.
+
+preprocess:
+  enabled: true
+  grayscale: true
+  denoise: "gaussian"          # none | gaussian | median | bilateral | nlm
+  denoise_kernel: 5            # kernel size used by gaussian/median/bilateral
+  threshold: "otsu"            # none | otsu | adaptive | global
+  adaptive_block_size: 31      # used only when threshold == adaptive
+  adaptive_c: 15               # constant subtracted from adaptive mean
+  global_thresh: 127           # used only when threshold == global
+  invert: false                # true helps OCR on dark-background images
+  deskew: true                 # correct small rotation angles
+  deskew_max_angle: 15
+
+detection:
+  method: "none"               # none | east | easyocr
+  east:
+    model_path: "models/frozen_east_text_detection.pb"
+    min_confidence: 0.5
+    width: 640                 # must be multiple of 32; higher = better detail
+    height: 640                # must be multiple of 32
+    nms_threshold: 0.4
+
+recognition:
+  backend: "tesseract"         # tesseract | easyocr | trocr
+  lang: "eng"
+  psm: 6                       # tesseract page segmentation mode
+  tessdata_dir: null           # set to override tessdata path (Windows installer)
+  easyocr:
+    use_gpu: false
+    paragraph: false
+  trocr:
+    model: "microsoft/trocr-base-printed"
+    max_length: 128
+
+output:
+  save_viz: false              # draw detected boxes + text onto the image
+  viz_path: "output/ocr_viz.jpg"
+  json_path: "output/ocr_result.json"
+
+validation:
+  ground_truth: null           # path to a .txt file with expected text (optional)
